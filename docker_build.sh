@@ -1,0 +1,1 @@
+docker build -t qt5-bin-build .
