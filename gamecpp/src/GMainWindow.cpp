@@ -24,6 +24,35 @@ GMainWindow::GMainWindow(QString title, int width, int height, QWidget* parent)
 
 void GMainWindow::handleGScenes()
 {
+    /**********************************
+    Game Sample code starts here
+
+    ToDo:
+
+        Improve adding scenes to GMainWindow
+            make _gScenes a QMap
+            bool SetScene
+            GScenePtr GetScene
+        Create an entity class and add a map to them into the GScene class
+
+    **********************************/
+    // Delete this code for deployment
+
+    _gScenes.push_back(std::make_shared<GScene>(_gWindowGeometry));
+    setGScene(_gScenes.front());
+
+    _gSpritePtr = std::make_shared<GSprite>(108, 140, ":/assets/sample_sprite.png");
+    _gSpritePtr->addAnimationId("run_right", 0);
+    _gSpritePtr->addAnimationId("run_left", 1);
+    _gSpritePtr->setAnimation("run_left");
+    _gSpritePtr->setPos(0, 0);
+
+    _gScenes.front()->addSpriteToSceneGUI(_gSpritePtr);
+
+
+    /*********************************
+        Game Sample code ends here
+    **********************************/
 }
 
 void GMainWindow::setGScene(GScenePtr gScenePtr)
